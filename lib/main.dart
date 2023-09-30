@@ -1,7 +1,8 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:painter_practice/smily_clipper.dart';
+import 'package:painter_practice/smily_painter.dart';
+import 'package:painter_practice/watch_painter.dart';
 
 void main() {
   runApp(const MyApp());
@@ -75,7 +76,7 @@ class _MyHomePageState extends State<MyHomePage> {
         width: width,
         height: height,
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
             SizedBox(
               width: width * 0.2,
@@ -86,6 +87,13 @@ class _MyHomePageState extends State<MyHomePage> {
                   smileStrength: _smileStrength,
                   eyeBallRadiusDecider: _radiusDecider,
                 ),
+              ),
+            ),
+            SizedBox(
+              width: 300, //width * 0.2,
+              height: 300, //height * 0.35,
+              child: CustomPaint(
+                painter: WatchPainter(),
               ),
             ),
           ],
