@@ -61,6 +61,11 @@ class _MyHomePageState extends State<MyHomePage> {
         color = Color.lerp(Colors.yellow, Colors.red, _counter);
       });
     });
+    Timer.periodic(const Duration(seconds: 1), (timer) {
+      setState(() {
+        
+      });
+    });
   }
 
   @override
@@ -93,7 +98,7 @@ class _MyHomePageState extends State<MyHomePage> {
               width: 300, //width * 0.2,
               height: 300, //height * 0.35,
               child: CustomPaint(
-                painter: WatchPainter(),
+                painter: WatchPainter(now: DateTime.now()),
               ),
             ),
           ],
