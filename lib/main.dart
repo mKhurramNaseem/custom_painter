@@ -38,6 +38,7 @@ class _MyHomePageState extends State<MyHomePage> {
   double _counter = 0;
   double _smileStrength = 0.3;
   double _radiusDecider = 0.7;
+  bool isDigits = false;
 
   @override
   void initState() {
@@ -63,7 +64,7 @@ class _MyHomePageState extends State<MyHomePage> {
     });
     Timer.periodic(const Duration(seconds: 1), (timer) {
       setState(() {
-        
+        isDigits = !isDigits;
       });
     });
   }
@@ -98,7 +99,7 @@ class _MyHomePageState extends State<MyHomePage> {
               width: 300, //width * 0.2,
               height: 300, //height * 0.35,
               child: CustomPaint(
-                painter: WatchPainter(now: DateTime.now()),
+                painter: WatchPainter(now: DateTime.now(), isDigits: isDigits),
               ),
             ),
           ],
