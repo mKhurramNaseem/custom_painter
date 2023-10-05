@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:painter_practice/smily_painter.dart';
+import 'package:painter_practice/speedo_meter_painter.dart';
 import 'package:painter_practice/watch_painter.dart';
 
 void main() {
@@ -81,27 +82,45 @@ class _MyHomePageState extends State<MyHomePage> {
       body: SizedBox(
         width: width,
         height: height,
-        child: Column(
+        child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: <Widget>[
-            SizedBox(
-              width: width * 0.2,
-              height: height * 0.35,
-              child: CustomPaint(
-                painter: SmileyPainter(
-                  faceColor: color,
-                  smileStrength: _smileStrength,
-                  eyeBallRadiusDecider: _radiusDecider,
+          children: [
+            Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: <Widget>[
+                SizedBox(
+                  width: width * 0.2,
+                  height: height * 0.35,
+                  child: CustomPaint(
+                    painter: SmileyPainter(
+                      faceColor: color,
+                      smileStrength: _smileStrength,
+                      eyeBallRadiusDecider: _radiusDecider,
+                    ),
+                  ),
                 ),
-              ),
+                SizedBox(
+                  width: 300, //width * 0.2,
+                  height: 300, //height * 0.35,
+                  child: CustomPaint(
+                    painter:
+                        WatchPainter(now: DateTime.now(), isDigits: isDigits),
+                  ),
+                ),
+              ],
             ),
-            SizedBox(
-              width: 300, //width * 0.2,
-              height: 300, //height * 0.35,
-              child: CustomPaint(
-                painter: WatchPainter(now: DateTime.now(), isDigits: isDigits),
-              ),
-            ),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                SizedBox(
+                  width: 500,
+                  height: 500,
+                  child: CustomPaint(
+                    painter: SpeedoMeterPainter(),
+                  ),
+                ),
+              ],
+            )
           ],
         ),
       ),

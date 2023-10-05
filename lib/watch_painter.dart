@@ -102,7 +102,7 @@ class WatchPainter extends CustomPainter {
           ? canvas.drawLine(lineStartOffset, hourLineEndOffset, tickPaint)
           : canvas.drawLine(lineStartOffset, minuteLineEndOffset, tickPaint);
       if (isHour) {
-        if (i / 5 == now.hour) {
+        if (i / 5 == now.hour-12) {
           // canvas.drawPath(
           //     Path()
           //       ..moveTo(0, 0)
